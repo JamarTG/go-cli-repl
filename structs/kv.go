@@ -26,7 +26,23 @@ func (kv *kv) Set(key string, value string) error {
 	return nil
 }
 
-func (kv *kv) Get() {
-	// iterate from the end and search
-	// as a last resort consult the store
+func (kv *kv) Get(key string) *string {
+
+	for _,transaction := range kv.transactions {
+
+		transactionValue, found := transaction[key]
+
+		if found {
+			return &transactionValue
+		}
+
+	}
+
+	v,ok := NewStore().data[key]
+	
+	if(ok) {
+		return &v
+	}
+	
+	return nil
 }
