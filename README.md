@@ -1,23 +1,22 @@
 # Command Line REPL — In-Memory Key-Value Store
 
 A command-line REPL for an in-memory key-value store that supports nested transactions, rollback/commit, and basic commands.
-
 ## Installation
 
 ```bash
-npm install
+go mod download
 ```
 
 ## How to Run
 
 ```bash
-npm start
+go run .
 ```
 
 ## How to Run Tests
 
 ```bash
-npm test
+go test ./...
 ```
 
 ## Commands
